@@ -8,7 +8,7 @@ yelp_api = YelpAPI(key)
 
 result = {}
 
-temp = open("business0.json","wt")
+temp = open("business"+sys.argv[1]+".json","wt")
 
 with open(sys.argv[1],'r') as infile:
 	phones = infile.read().split(',')
