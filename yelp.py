@@ -8,10 +8,10 @@ yelp_api = YelpAPI(key)
 result = {}
 
 with open(sys.argv[1],'r') as infile:
-    phones = json.load(infile)
+    phones = infile.read().split(',')
     
-for line in phones:
-    phone = "+1" + line["PHONE"]
+for obj in phones:
+    phone = "+1" + json.loads(obj)["PHONE"]
     response = yelp_api.phone_search_query(phone = phone)
     result.update(response)
 
