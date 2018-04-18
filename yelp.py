@@ -18,7 +18,7 @@ for obj in phones:
 	response = yelp_api.phone_search_query(phone = phone)
 	result.update(response)
 	json.dump(response,temp)
-	time.sleep(2)
+	time.sleep(1)
 	
 
 with open(sys.argv[1]+'business.json', 'w') as outfile:
