@@ -19,7 +19,7 @@ temp = open("business"+sys.argv[1]+".json","wt")
 
 data = json.load(open(sys.argv[1]))
     
-for line in phones:
+for line in data:
 	phone = "+1" + line["PHONE"]
 	response = yelp_api.phone_search_query(phone = phone)
 	result.append(response)
