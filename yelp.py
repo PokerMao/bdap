@@ -24,8 +24,8 @@ for line in data:
 	response = yelp_api.phone_search_query(phone = phone)
 	if response is not None:
 		result.append(response)
-		json.dump(response, temp)
-	time.sleep(1)	
+		temp.write(json.dumps(response) + '\n')
+	time.sleep(1)
 
 with open("business_" + sys.argv[1] + ".json", 'w') as outfile:
     json.dump(result, outfile)
