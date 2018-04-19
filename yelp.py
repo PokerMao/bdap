@@ -23,8 +23,8 @@ for line in data:
 	phone = "+1" + line["PHONE"]
 	response = yelp_api.phone_search_query(phone = phone)
 	result.append(response)
+	json.dump(response, temp)
 	time.sleep(1)	
 
 with open("business_" + sys.argv[1] + ".json", 'w') as outfile:
     json.dump(result, outfile)
-
