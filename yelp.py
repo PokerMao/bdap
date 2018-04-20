@@ -21,6 +21,8 @@ data = json.load(open(sys.argv[1]))
     
 for line in data:
 	phone = "+1" + line["PHONE"]
+	if "_" in phone:
+		continue
 	response = yelp_api.phone_search_query(phone = phone)
 	if response is not None:
 		result.append(response)
