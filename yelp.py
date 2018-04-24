@@ -1,6 +1,4 @@
 '''
-不用修改源文件
-直接调用
 python yelp.py #number
 
 '''
