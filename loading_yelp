@@ -40,3 +40,8 @@ root
  |-- review_count: long (nullable = true)
  |-- rating: double (nullable = true)
 
+
+
+linear regression:
+
+https://www.programcreek.com/scala/org.apache.spark.ml.regression.LinearRegression
