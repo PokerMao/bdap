@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Search</title>
+</head>
+
+<body>
+    {%  include 'home/Navbar.html' %}
+
+    <div class="container">
+        <header>
+        <p>
+            <span>Restaurant</span>
+            <br /> Search
+        </p>
+        </header>
+          <div class="py-5 text-center">
+            <p class="lead">Welcome to try our restaurant searching system! You just need to input the longitude and latitude below,
+                we will provide you a list of restaurants with information of rating, health, and noise.
+                Our goal is to help you choose the best restaurants in NYC.</p>
+          </div>
+
+          <div class="form">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <span class="text-danger small"> {{ form.non_field_errors }} </span>
+              </div>
+              <form action="" method="post">
+                  {% csrf_token %}
+                  {%  include 'home/form-template.html' %}
+                <input type="submit" value="Submit">
+              </form>
+          </div>
+    </div>
+</body>
+
+</html>

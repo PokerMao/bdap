@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+</head>
+
+<body>
+    {%  include 'home/Navbar.html' %}
+    <div class="container">
+    <header>
+      <p>
+        <span>Restaurant</span>
+        <br /> Search Result
+      </p>
+    </header>
+
+    <div >
+        <div class="py-5 text-center">
+            <p class="lead">Following is a list of restaurants around the place you submit. </p>
+        </div>
+        <ul class = Restaurant-list>
+            {%  for restaurant in list %}
+                <li class="Restaurant">
+                    <img src= {{ restaurant.picture }} />
+                    <h3 class="Restaurant-name"> {{ restaurant.name }} </h3>
+                    <ul>
+                        <li> Yelp Rating: {{ restaurant.rating }} </li>
+                        <li> Number of reviews: {{ restaurant.reviews }} </li>
+                        <li> Inspection Grade: {{ restaurant.grade }} </li>
+                        <li> Noise Level: {{ restaurant.noise }} </li>
+                        <li> Price Level: {{ restaurant.price }} </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
