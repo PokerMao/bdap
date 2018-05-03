@@ -54,8 +54,7 @@ val result1 = result.dropDuplicates().persist()
 //take highest review count as the review count for each restaurant
 val result2 = result1.join(result1.groupBy($"PHONE").agg(max($"review_count") as "reviews").withColumnRenamed("PHONE","aphone"),$"PHONE"===$"aphone" && $"review_count" ===$"reviews").drop("aphone").drop("review_count")
 val result3 = result2.withColumn("price",udfcnt($"price")).withColumn("score",udfcast($"score")).na.drop()
-
-
+val result4 = result3.select($"rating",($"price"-1.7).as("price"),($"noise"-10153).as("noise"),($"score"-10).as("score"),($"reviews"-193).as("reviews")).persist()
 
 //Linear regression
 import org.apache.spark.ml.evaluation.RegressionEvaluator
@@ -67,15 +66,15 @@ import org.apache.spark.mllib.linalg.Vectors
 Logger.getLogger(“org”).setLevel(Level.ERROR)
 
 val assembler = new VectorAssembler().setInputCols(Array("price","reviews","score","noise")).setOutputCol("features")
-val table = assembler.transform(result3).select($"rating".as("lable"),$"features")
+val table = assembler.transform(result3).select($"rating".as("label"),$"features")
 
 //dummy varialbe with Grade A sanitary Grade
 val sign = udf((x:Int)=>if(x<=15) 1 else 0)
-val result4 = result3.withColumn("score",sign($"score"))
-val table1 = assembler.transform(result4).select($"rating".as("lable"),$"features")
+val result5 = result3.withColumn("score",sign($"score"))
+val table1 = assembler.transform(result4).select($"rating".as("label"),$"features")
 //log transform for noise
-val result5 = result4.withColumn("noise",log1p($"noise"))
-val table2 = assembler.transform(result5).select($"rating".as("lable"),$"features")
+val result6 = result4.withColumn("noise",log1p($"noise"))
+val table2 = assembler.transform(result5).select($"rating".as("label"),$"features")
 
 val lr = new LinearRegression()
 
