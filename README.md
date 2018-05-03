@@ -14,4 +14,4 @@ format.py: This script is used to clean the data format into correct json array 
 
 Website2/Restaurant-Information: This folder contains all source code for our UI.
 ### UI
-Our UI is designed using Django framework with Mongodb and deployed to Heroku polatform. The link of our UI is here: https://restaurant-information.herokuapp.com/result/
+Our UI is designed using Django framework with Mongodb and deployed to Heroku polatform. The link of our UI is here: https://restaurant-information.herokuapp.com
