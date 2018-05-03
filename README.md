@@ -20,14 +20,3 @@
 
 
 - The heat map is based on the number of noise requsets around restaurants in NYC inspection dataset. Visualize by open `heatmap/noiseheatmap.html` in your Web browser.
-
-
-
-
-
-
-
-
-
-
-
