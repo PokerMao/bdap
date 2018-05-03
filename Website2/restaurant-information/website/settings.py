@@ -84,7 +84,7 @@ DATABASES = {
         'HOST': 'ds261479.mlab.com',
         'PORT': 61479,
         'USER': 'admin',
-        'PASSWORD': 'Liuxiaodan92',
+        'PASSWORD': 'password',
         'AUTH_SOURCE': 'heroku_b5kfnv53',
         'AUTH_MECHANISM': 'SCRAM-SHA-1',
     }
