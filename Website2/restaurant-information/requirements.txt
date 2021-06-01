@@ -27,7 +27,7 @@ scipy==1.0.0
 six==1.11.0
 sklearn==0.0
 sqlparse==0.2.4
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==15.2.0
 whitenoise==3.3.1
 yelpapi==2.2.2
